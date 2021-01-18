@@ -18,7 +18,7 @@ class TestController extends Controller
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION,false); 
         $data = curl_exec($ch); 
         $pdata = $this->http_parse_headers($data); 
-        return $pdata;
+        return response()->json(['set_attributes' => ['url' => $pdata]]);
     }
     function http_parse_headers( $header )
     {
